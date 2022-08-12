@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/tx 
+        http://www.springframework.org/schema/tx/spring-tx.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/util 
+        http://www.springframework.org/schema/util/spring-util.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+
+	<context:annotation-config />
+
+	<util:list list-class="java.util.ArrayList" id="hobbies1">
+
+		<value>listening music</value>
+		<value>guitar</value>
+		<value>coding</value>
+		<value>cricket</value>
+	</util:list>
+	<util:set set-class="java.util.TreeSet" id="phoneNumbers1">
+
+		<value>123456</value>
+		<value>2345235</value>
+		<value>3443434</value>
+		<value>4342343</value>
+		<value>5464646</value>
+		<value>6453453</value>
+		<value>1234593</value>
+	</util:set>
+	<util:map map-class="java.util.HashMap" id="courses1">
+
+		<entry key="1" value="go" />
+		<entry key="2" value="c++" />
+		<entry key="3" value="c" />
+		<entry key="4" value="scala" />
+	</util:map>
+
+	<util:properties id="dbProperties1">
+		<prop key="db-url">
+			localhost
+		</prop>
+
+		<prop key="db-name">
+			root
+		</prop>
+
+		<prop key="db-password">
+			password
+		</prop>
+	</util:properties>
+
+	<bean class="com.fis.utilprograms.Address" name="add1">
+		<property name="pincode" value="123456" />
+		<property name="city" value="exo planet 90" />
+	</bean>
+
+	<bean class="com.fis.utilprograms.Student" name="student1">
+		<property name="studentId" value="24" />
+		<property name="name" value="nick" />
+		<property name="age" value="20" />
+		<property name="phoneNumbers" ref="phoneNumbers1" />
+		<property name="courses" ref="courses1" />
+		<property name="hobbies" ref="hobbies1" />
+		<property name="address" ref="add1" />
+
+	</bean>
+
+	<bean class="com.fis.util.Configuration" name="configuration1">
+		<property name="dbProperties" ref="dbProperties1"></property>
+	</bean>
+</beans>
+
